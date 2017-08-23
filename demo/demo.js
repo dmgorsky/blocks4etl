@@ -21,20 +21,16 @@
             blocks.perfectScale();
         });
 
-        $('.loadcatalog').click(function () {
-            $.get("demo/data/testcatalog.json", function (data, status) {
-                alert("Data: " + data + "\nStatus: " + status);
-                data = $.parseJSON(data);
-            })
-        });
-
         $('.loadtypes').click(function () {
             $.get("demo/data/catalog.json", function (data, status) {
-                var metatypes = $.parseJSON(data);
-                var nodes = metatypes.nodes;
-                for (var nodeKey in metatypes.nodes) {
+                let metatypes = $.parseJSON(data);
+                let nodes = metatypes.nodes;
+                //
+                // todo: hasOwnProperty
+                //
+                for (let nodeKey in metatypes.nodes) {
                     let node = metatypes.nodes[nodeKey];
-                    var metatype = {
+                    let metatype = {
                         "name": nodeKey,
                         "family": node.categoryName,
                         "fields": []
@@ -51,8 +47,8 @@
                             }
                         )
                     }
-                    var nodeOutputs = node.outputs;
-                    for (var noteOutput of nodeOutputs) {
+                    let nodeOutputs = node.outputs;
+                    for (let noteOutput of nodeOutputs) {
                         metatype.fields.push(
                             {
                                 "name": noteOutput,
@@ -63,52 +59,38 @@
                             }
                         )
                     }
-                    var nodeProperties = node.schema.properties;
-                    for (var nodePropertyKey in nodeProperties) {
-                        var nodeProperty = nodeProperties[nodePropertyKey];
-                        metatype.fields.push(
-                            {
-                                "name": nodePropertyKey,
-                                "type": "text",
-                                "card": "1",
-                                "extensible": true,
-                                "attrs": "editable"
-                            }
-                        )
+                    let nodeProperties = node.schema.properties;
+                    for (let nodePropertyKey in nodeProperties) {
+                        if (nodeProperties.hasOwnProperty(nodePropertyKey)) {
+                            let nodeProperty = nodeProperties[nodePropertyKey];
+                            metatype.fields.push(
+                                {
+                                    "name": nodePropertyKey,
+                                    "type": "text",
+                                    "card": "1",
+                                    "extensible": true,
+                                    "defaultValue": "",
+                                    "attrs": "editable"
+                                }
+                            )
+                        }
                     }
 
-                    // metatype.fields.push(
-                    //     {
-                    //         "name": "className",
-                    //         "type": "text",
-                    //         "card": 1,
-                    //         "defaultValue": node.className,
-                    //         "extensible": true,
-                    //         "attrs": "editable"
-                    //     }
-                    // );
-                    // metatype.fields.push(
-                    //     {
-                    //         "name": "exposedName",
-                    //         "type": "text",
-                    //         "card": 1,
-                    //         "defaultValue": node.exposedName,
-                    //         "extensible": true,
-                    //         "attrs": "editable"
-                    //     }
-                    // );
-                    console.log(metatype);
                     blocks.register(metatype);
                 }
             })
         });
 
         $('.loadgraph').click(function () {
-            $.get("demo/data/scene.json", function (data, status) {
+            /*$.get("demo/data/scene.json", function (data, status) {
                 blocks.load($.parseJSON(data));
             });
-            blocks.run('#blocks');
-            blocks.perfectScale();
+            blocks.perfectScale();*/
+            $.get("demo/data/simple_job.json", function (data, status) {
+                    let graph = $.parseJSON(data);
+
+                }
+            )
         });
 
         $('.savegraph').click(function () {

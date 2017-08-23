@@ -1,13 +1,89 @@
 {
-  "edges": []
-  ,
+  "edges": [
+    {
+      "id": 1,
+      "block1": 1,
+      "connector1": [
+        "output",
+        "output"
+      ],
+      "block2": 3,
+      "connector2": [
+        "input",
+        "input"
+      ]
+    },
+    {
+      "id": 6,
+      "block1": 3,
+      "connector1": [
+        "output",
+        "output"
+      ],
+      "block2": 6,
+      "connector2": [
+        "input",
+        "input"
+      ]
+    },
+    {
+      "id": 7,
+      "block1": 6,
+      "connector1": [
+        "output",
+        "output"
+      ],
+      "block2": 2,
+      "connector2": [
+        "input",
+        "input"
+      ]
+    }
+  ],
   "blocks": [
     {
       "id": 1,
-      "x": -28.94527940939528,
-      "y": 38.86995752960317,
-      "type": "AddColumnNode",
-      "module": "processors"
+      "x": -363.6801786197107,
+      "y": -256.3663647424632,
+      "type": "AvroFileInputNode",
+      "module": null,
+      "values": {
+        "inputpath": "/dev/null"
+      }
+    },
+    {
+      "id": 2,
+      "x": 103.94940093956995,
+      "y": -54.441259970258216,
+      "type": "HiveOutputNode",
+      "module": null,
+      "values": {
+        "database": "myDatabase1",
+        "savemode": "total",
+        "table": "dummy"
+      }
+    },
+    {
+      "id": 3,
+      "x": -212.02274993240513,
+      "y": -193.32783560903067,
+      "type": "NumericToDoubleNode",
+      "module": null,
+      "values": {}
+    },
+    {
+      "id": 6,
+      "x": -55.993768588617115,
+      "y": -149.39495741516828,
+      "type": "ReservoirSamplerNode",
+      "module": null,
+      "values": {
+        "outputsizebytes": "128",
+        "outputsizerows": "256",
+        "rowsizeestimatedelimiter": "512",
+        "rowsizeestimatenumofrows": "1024",
+        "seed": "2048"
+      }
     }
   ]
 }
