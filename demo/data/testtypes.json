@@ -1,0 +1,264 @@
+{
+  "nodetypes": [
+    {
+      "name": "Addition",
+      "family": "Math",
+      "fields": [
+        {
+          "name": "Terms",
+          "card": "0-*",
+          "attrs": "input",
+          "type": "number[]",
+          "extensible": true,
+          "card": "1"
+        },
+        {
+          "name": "Sum",
+          "card": "0-*",
+          "attrs": "output",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "name": "BlobDetect",
+      "family": "Image",
+      "description": "Blob detection",
+      "fields": [
+        {
+          "name": "Threshold",
+          "type": "number",
+          "defaultValue": 0.2,
+          "attrs": "editable"
+        },
+        {
+          "name": "Image",
+          "type": "image",
+          "attrs": "input",
+          "card": "1"
+        },
+        {
+          "name": "X",
+          "type": "number",
+          "attrs": "output"
+        },
+        {
+          "name": "Y",
+          "type": "number",
+          "attrs": "output"
+        }
+      ]
+    },
+    {
+      "name": "Camera",
+      "family": "Image",
+      "description": "A camera",
+      "fields": [
+        {
+          "name": "Resolutions",
+          "type": "resolutions[]",
+          "choices": [
+            "640x480",
+            "320x240"
+          ],
+          "defaultValue": [
+            "640x480"
+          ],
+          "attrs": "editable"
+        },
+        {
+          "name": "Image",
+          "type": "image[]",
+          "attrs": "output",
+          "dimension": "resolutions"
+        }
+      ]
+    },
+    {
+      "name": "Comment",
+      "class": "commentblock",
+      "fields": [
+        {
+          "name": "Comment",
+          "hideLabel": true,
+          "type": "textarea",
+          "defaultValue": "Comment text",
+          "card": 0,
+          "attrs": "editable"
+        }
+      ]
+    },
+    {
+      "name": "Constant",
+      "family": "Math",
+      "description": "A simple input constant",
+      "size": "small",
+      "fields": [
+        {
+          "name": "Value",
+          "type": "number[]",
+          "defaultValue": [
+            1,
+            2,
+            3
+          ],
+          "attrs": "editable output"
+        }
+      ]
+    },
+    {
+      "name": "Gains",
+      "family": "Math",
+      "description": "Each <b>output[i]</b> will be <b>gain[i]*input[i]</b>",
+      "size": "small",
+      "fields": [
+        {
+          "name": "Gains",
+          "hide": true,
+          "type": "number[]",
+          "attrs": "editable",
+          "defaultValue": [
+            1,
+            2
+          ]
+        },
+        {
+          "name": "input",
+          "label": "X#",
+          "dimension": "Gains",
+          "attrs": "input",
+          "card": "1",
+          "type": "number"
+        },
+        {
+          "name": "output",
+          "label": "Y#",
+          "dimension": "Gains",
+          "attrs": "output",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "name": "Output",
+      "family": "Output",
+      "description": "This is a standard output",
+      "fields": [
+        {
+          "name": "Index",
+          "type": "number",
+          "defaultValue": 0,
+          "attrs": "editable inpût"
+        },
+        {
+          "card": "0-1",
+          "name": "Input",
+          "attrs": "input"
+        }
+      ]
+    },
+    {
+      "name": "Motor",
+      "family": "Output",
+      "description": "This will be sent directly to the motor as goal direction and torque",
+      "fields": [
+        {
+          "name": "Name",
+          "type": "text",
+          "asTitle": true,
+          "hideLabel": true,
+          "card": "0",
+          "attrs": "editable",
+          "defaultValue": "Motor"
+        },
+        {
+          "card": "0-1",
+          "name": "Angle",
+          "attrs": "input",
+          "type": "number"
+        },
+        {
+          "card": "0-1",
+          "name": "Torque",
+          "attrs": "input",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "name": "Sinus",
+      "family": "Math",
+      "description": "Outputs <b>sin(T+phase)*amplitude</b>",
+      "fields": [
+        {
+          "name": "Amplitude",
+          "type": "number",
+          "defaultValue": 1,
+          "attrs": "editable input"
+        },
+        {
+          "name": "Frequency",
+          "type": "number",
+          "unit": "Hz",
+          "defaultValue": 10,
+          "attrs": "editable input"
+        },
+        {
+          "name": "Phase",
+          "type": "number",
+          "unit": "°",
+          "defaultValue": 0,
+          "attrs": "editable input"
+        },
+        {
+          "name": "Invert",
+          "type": "bool",
+          "defaultValue": false,
+          "attrs": "editable input"
+        },
+        {
+          "card": "1",
+          "name": "T",
+          "attrs": "input"
+        },
+        {
+          "name": "Wave",
+          "attrs": "output",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "name": "Chrono",
+      "family": "Time",
+      "fields": [
+        {
+          "name": "Factor",
+          "type": "number",
+          "defaultValue": 1.0,
+          "attrs": "editable input"
+        },
+        {
+          "card": "0-*",
+          "name": "Time",
+          "type": "number",
+          "defaultValue": 0,
+          "attrs": "editable output"
+        }
+      ]
+    },
+    {
+      "name": "AddColumnNode",
+      "family": "processors",
+      "fields": [
+        {
+          "name": "className",
+          "type": "text",
+          "card": "1",
+          "defaultValue": "com.datarobot.dssetl.lib.nodes.processors.AddColumnNode",
+          "attrs": "editable"
+        }
+      ]
+    }
+  ]
+}

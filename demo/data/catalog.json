@@ -1,0 +1,931 @@
+{
+  "nodes": {
+    "AddColumnNode": {
+      "categoryName": "processors",
+      "className": "com.datarobot.dssetl.lib.nodes.processors.AddColumnNode",
+      "exposedName": "addColumn",
+      "inputs": ["input"],
+      "optionalInputs": [],
+      "optionalOutputs": [],
+      "outputLocationNames": [],
+      "outputs": ["output"],
+      "schema": {
+        "required": ["columnExpressions"],
+        "properties": {
+          "columnExpressions": {
+            "values": {
+              "type": "string"
+            },
+            "type": "map"
+          }
+        }
+      }
+    },
+    "AmbiguousColumnsResolverNode": {
+      "categoryName": "processors",
+      "className": "com.datarobot.dssetl.lib.nodes.processors.AmbiguousColumnsResolverNode",
+      "exposedName": "ambiguousColumnsResolver",
+      "inputs": ["input"],
+      "optionalInputs": [],
+      "optionalOutputs": [],
+      "outputLocationNames": [],
+      "outputs": ["output"],
+      "schema": {
+        "required": [],
+        "properties": {
+
+        }
+      }
+    },
+    "ApplySchemaNode": {
+      "categoryName": "processors",
+      "className": "com.datarobot.dssetl.lib.nodes.processors.ApplySchemaNode",
+      "exposedName": "applySchema",
+      "inputs": ["input"],
+      "optionalInputs": [],
+      "optionalOutputs": [],
+      "outputLocationNames": [],
+      "outputs": ["output"],
+      "schema": {
+        "required": ["newSchema"],
+        "properties": {
+          "namesOnly": {
+            "type": "boolean"
+          },
+          "newSchema": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "AverageTextRowSizeNode": {
+      "categoryName": "analyzers",
+      "className": "com.datarobot.dssetl.lib.nodes.analyzers.AverageTextRowSizeNode",
+      "exposedName": "averageTextRowSize",
+      "inputs": ["input"],
+      "optionalInputs": [],
+      "optionalOutputs": [],
+      "outputLocationNames": [],
+      "outputs": [],
+      "schema": {
+        "required": [],
+        "properties": {
+          "delimiter": {
+            "type": "string"
+          },
+          "numOfRows": {
+            "min": 1,
+            "type": "long"
+          }
+        }
+      }
+    },
+    "AvroFileInputNode": {
+      "categoryName": "inputs",
+      "className": "com.datarobot.dssetl.lib.nodes.inputs.AvroFileInputNode",
+      "exposedName": "avro",
+      "inputs": [],
+      "optionalInputs": [],
+      "optionalOutputs": [],
+      "outputLocationNames": [],
+      "outputs": ["output"],
+      "schema": {
+        "required": ["inputPath"],
+        "properties": {
+          "inputPath": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "AvroFileOutputNode": {
+      "categoryName": "outputs",
+      "className": "com.datarobot.dssetl.lib.nodes.outputs.AvroFileOutputNode",
+      "exposedName": "avro",
+      "inputs": ["input"],
+      "optionalInputs": [],
+      "optionalOutputs": [],
+      "outputLocationNames": ["outputFile"],
+      "outputs": [],
+      "schema": {
+        "required": ["outputFile"],
+        "properties": {
+          "compressionCodec": {
+            "type": "string"
+          },
+          "outputFile": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ColumnsAdderNode": {
+      "categoryName": "processors",
+      "className": "com.datarobot.dssetl.lib.nodes.processors.ColumnsAdderNode",
+      "exposedName": "columnAdder",
+      "inputs": ["left", "right"],
+      "optionalInputs": [],
+      "optionalOutputs": [],
+      "outputLocationNames": [],
+      "outputs": ["output"],
+      "schema": {
+        "required": ["columns"],
+        "properties": {
+          "columns": {
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        }
+      }
+    },
+    "ConvertFieldsNode": {
+      "categoryName": "processors",
+      "className": "com.datarobot.dssetl.lib.nodes.processors.ConvertFieldsNode",
+      "exposedName": "convertFields",
+      "inputs": ["input"],
+      "optionalInputs": [],
+      "optionalOutputs": [],
+      "outputLocationNames": [],
+      "outputs": ["output"],
+      "schema": {
+        "required": ["conversionTypes"],
+        "properties": {
+          "conversionInfo": {
+            "values": {
+              "type": "string"
+            },
+            "type": "map"
+          },
+          "conversionTypes": {
+            "values": {
+              "type": "string"
+            },
+            "type": "map"
+          },
+          "skipBoolean": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "CsvFileInputNode": {
+      "categoryName": "inputs",
+      "className": "com.datarobot.dssetl.lib.nodes.inputs.CsvFileInputNode",
+      "exposedName": "csv",
+      "inputs": [],
+      "optionalInputs": [],
+      "optionalOutputs": [],
+      "outputLocationNames": [],
+      "outputs": ["output"],
+      "schema": {
+        "required": ["inputPath"],
+        "properties": {
+          "charset": {
+            "type": "string"
+          },
+          "comment": {
+            "type": "string"
+          },
+          "customSchema": {
+            "type": "string"
+          },
+          "delimiter": {
+            "type": "string"
+          },
+          "dumpToHdfs": {
+            "type": "boolean"
+          },
+          "escape": {
+            "type": "string"
+          },
+          "header": {
+            "type": "boolean"
+          },
+          "inferSchema": {
+            "type": "boolean"
+          },
+          "inputPath": {
+            "type": "string"
+          },
+          "mode": {
+            "type": "string"
+          },
+          "multiLine": {
+            "type": "boolean"
+          },
+          "nullValue": {
+            "type": "string"
+          },
+          "numOfRowsForSchemaDetection": {
+            "min": -1,
+            "type": "long"
+          },
+          "parserLib": {
+            "type": "string"
+          },
+          "pipelines": {
+            "type": "string"
+          },
+          "quote": {
+            "type": "string"
+          },
+          "recordSeparator": {
+            "type": "string"
+          },
+          "useDatarobotCsvImpl": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "CsvFileOutputNode": {
+      "categoryName": "outputs",
+      "className": "com.datarobot.dssetl.lib.nodes.outputs.CsvFileOutputNode",
+      "exposedName": "csv",
+      "inputs": ["input"],
+      "optionalInputs": [],
+      "optionalOutputs": [],
+      "outputLocationNames": ["outputFile"],
+      "outputs": [],
+      "schema": {
+        "required": ["outputFile"],
+        "properties": {
+          "delimiter": {
+            "type": "string"
+          },
+          "escape": {
+            "type": "string"
+          },
+          "header": {
+            "type": "boolean"
+          },
+          "nullValue": {
+            "type": "string"
+          },
+          "outputFile": {
+            "type": "string"
+          },
+          "quote": {
+            "type": "string"
+          },
+          "quoteMode": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "DataFrameToReportNode": {
+      "categoryName": "analyzers",
+      "className": "com.datarobot.dssetl.lib.nodes.analyzers.DataFrameToReportNode",
+      "exposedName": "dataFrameToReport",
+      "inputs": ["input"],
+      "optionalInputs": [],
+      "optionalOutputs": [],
+      "outputLocationNames": [],
+      "outputs": [],
+      "schema": {
+        "required": [],
+        "properties": {
+
+        }
+      }
+    },
+    "DatasetMetadataNode": {
+      "categoryName": "analyzers",
+      "className": "com.datarobot.dssetl.lib.nodes.analyzers.DatasetMetadataNode",
+      "exposedName": "datasetMetadata",
+      "inputs": ["input"],
+      "optionalInputs": [],
+      "optionalOutputs": [],
+      "outputLocationNames": [],
+      "outputs": [],
+      "schema": {
+        "required": [],
+        "properties": {
+
+        }
+      }
+    },
+    "EdaNode": {
+      "categoryName": "analyzers",
+      "className": "com.datarobot.dssetl.lib.nodes.analyzers.EdaNode",
+      "exposedName": "eda",
+      "inputs": ["input"],
+      "optionalInputs": [],
+      "optionalOutputs": [],
+      "outputLocationNames": [],
+      "outputs": [],
+      "schema": {
+        "required": [],
+        "properties": {
+          "distinctItemsNormalPrecision": {
+            "min": 4,
+            "max": 32,
+            "type": "long"
+          },
+          "distinctItemsSparsePrecision": {
+            "min": 0,
+            "max": 32,
+            "type": "long"
+          },
+          "frequentItemsMinFrequency": {
+            "min": 0.00010,
+            "type": "double"
+          },
+          "showCountsThreshold": {
+            "min": 2,
+            "type": "long"
+          }
+        }
+      }
+    },
+    "ExternalModelNode": {
+      "categoryName": "processors",
+      "className": "com.datarobot.dssetl.lib.nodes.processors.ExternalModelNode",
+      "exposedName": "externalModel",
+      "inputs": ["input"],
+      "optionalInputs": [],
+      "optionalOutputs": [],
+      "outputLocationNames": [],
+      "outputs": ["output"],
+      "schema": {
+        "required": ["isDRModel", "modelPath"],
+        "properties": {
+          "isDRModel": {
+            "type": "boolean"
+          },
+          "modelPath": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "FilterNullRecordsNode": {
+      "categoryName": "processors",
+      "className": "com.datarobot.dssetl.lib.nodes.processors.FilterNullRecordsNode",
+      "exposedName": "filterNullRecords",
+      "inputs": ["input"],
+      "optionalInputs": [],
+      "optionalOutputs": ["discarded"],
+      "outputLocationNames": [],
+      "outputs": ["output"],
+      "schema": {
+        "required": ["columnName"],
+        "properties": {
+          "columnName": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "HiveInputNode": {
+      "categoryName": "inputs",
+      "className": "com.datarobot.dssetl.lib.nodes.inputs.HiveInputNode",
+      "exposedName": "hive",
+      "inputs": [],
+      "optionalInputs": [],
+      "optionalOutputs": [],
+      "outputLocationNames": [],
+      "outputs": ["output"],
+      "schema": {
+        "required": ["table"],
+        "properties": {
+          "database": {
+            "type": "string"
+          },
+          "table": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "HiveOutputNode": {
+      "categoryName": "outputs",
+      "className": "com.datarobot.dssetl.lib.nodes.outputs.HiveOutputNode",
+      "exposedName": "hive",
+      "inputs": ["input"],
+      "optionalInputs": [],
+      "optionalOutputs": [],
+      "outputLocationNames": [],
+      "outputs": [],
+      "schema": {
+        "required": ["table"],
+        "properties": {
+          "database": {
+            "type": "string"
+          },
+          "saveMode": {
+            "choices": ["overwrite", "append", "ignore", "error"],
+            "type": "string"
+          },
+          "table": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "JdbcInputNode": {
+      "categoryName": "inputs",
+      "className": "com.datarobot.dssetl.lib.nodes.inputs.JdbcInputNode",
+      "exposedName": "jdbc",
+      "inputs": [],
+      "optionalInputs": [],
+      "optionalOutputs": [],
+      "outputLocationNames": [],
+      "outputs": ["output"],
+      "schema": {
+        "required": ["dbtable", "driver", "url"],
+        "properties": {
+          "dbtable": {
+            "type": "string"
+          },
+          "driver": {
+            "type": "string"
+          },
+          "dumpToHdfs": {
+            "type": "boolean"
+          },
+          "fetchSize": {
+            "type": "long"
+          },
+          "partitionColumn": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "JoinNode": {
+      "categoryName": "processors",
+      "className": "com.datarobot.dssetl.lib.nodes.processors.JoinNode",
+      "exposedName": "joiner",
+      "inputs": ["left", "right"],
+      "optionalInputs": [],
+      "optionalOutputs": [],
+      "outputLocationNames": [],
+      "outputs": ["output"],
+      "schema": {
+        "required": ["expression"],
+        "properties": {
+          "expression": {
+            "type": "string"
+          },
+          "joinBroadcastThresholdBytes": {
+            "type": "long"
+          }
+        }
+      }
+    },
+    "JsonFileInputNode": {
+      "categoryName": "inputs",
+      "className": "com.datarobot.dssetl.lib.nodes.inputs.JsonFileInputNode",
+      "exposedName": "json",
+      "inputs": [],
+      "optionalInputs": [],
+      "optionalOutputs": [],
+      "outputLocationNames": [],
+      "outputs": ["output"],
+      "schema": {
+        "required": ["inputPath"],
+        "properties": {
+          "inputPath": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "LimitSamplerNode": {
+      "categoryName": "processors",
+      "className": "com.datarobot.dssetl.lib.nodes.processors.LimitSamplerNode",
+      "exposedName": "limitSampler",
+      "inputs": ["input"],
+      "optionalInputs": [],
+      "optionalOutputs": [],
+      "outputLocationNames": [],
+      "outputs": ["output"],
+      "schema": {
+        "required": ["outputSizeRows"],
+        "properties": {
+          "minimumSizeRows": {
+            "min": 0,
+            "type": "long"
+          },
+          "numOfPartitions": {
+            "type": "long"
+          },
+          "outputSizeRows": {
+            "min": 0,
+            "type": "long"
+          },
+          "seed": {
+            "type": "long"
+          },
+          "timeout": {
+            "min": 0,
+            "type": "long"
+          }
+        }
+      }
+    },
+    "NullParserNode": {
+      "categoryName": "processors",
+      "className": "com.datarobot.dssetl.lib.nodes.processors.NullParserNode",
+      "exposedName": "nullParser",
+      "inputs": ["input"],
+      "optionalInputs": [],
+      "optionalOutputs": [],
+      "outputLocationNames": [],
+      "outputs": ["output"],
+      "schema": {
+        "required": [],
+        "properties": {
+          "nullValue": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "NumericToDoubleNode": {
+      "categoryName": "processors",
+      "className": "com.datarobot.dssetl.lib.nodes.processors.NumericToDoubleNode",
+      "exposedName": "numericToDouble",
+      "inputs": ["input"],
+      "optionalInputs": [],
+      "optionalOutputs": [],
+      "outputLocationNames": [],
+      "outputs": ["output"],
+      "schema": {
+        "required": [],
+        "properties": {
+
+        }
+      }
+    },
+    "OrcFileInputNode": {
+      "categoryName": "inputs",
+      "className": "com.datarobot.dssetl.lib.nodes.inputs.OrcFileInputNode",
+      "exposedName": "orc",
+      "inputs": [],
+      "optionalInputs": [],
+      "optionalOutputs": [],
+      "outputLocationNames": [],
+      "outputs": ["output"],
+      "schema": {
+        "required": ["inputPath"],
+        "properties": {
+          "inputPath": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "OrcFileOutputNode": {
+      "categoryName": "outputs",
+      "className": "com.datarobot.dssetl.lib.nodes.outputs.OrcFileOutputNode",
+      "exposedName": "orc",
+      "inputs": ["input"],
+      "optionalInputs": [],
+      "optionalOutputs": [],
+      "outputLocationNames": ["outputFile"],
+      "outputs": [],
+      "schema": {
+        "required": ["outputFile"],
+        "properties": {
+          "outputFile": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ParquetFileInputNode": {
+      "categoryName": "inputs",
+      "className": "com.datarobot.dssetl.lib.nodes.inputs.ParquetFileInputNode",
+      "exposedName": "parquet",
+      "inputs": [],
+      "optionalInputs": [],
+      "optionalOutputs": [],
+      "outputLocationNames": [],
+      "outputs": ["output"],
+      "schema": {
+        "required": ["inputPath"],
+        "properties": {
+          "binaryAsString": {
+            "type": "boolean"
+          },
+          "cacheMetadata": {
+            "type": "boolean"
+          },
+          "convertMetastoreParquet": {
+            "type": "boolean"
+          },
+          "filterPushdown": {
+            "type": "boolean"
+          },
+          "inputPath": {
+            "type": "string"
+          },
+          "int96AsTimestamp": {
+            "type": "boolean"
+          },
+          "mergeSchema": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "ParquetFileOutputNode": {
+      "categoryName": "outputs",
+      "className": "com.datarobot.dssetl.lib.nodes.outputs.ParquetFileOutputNode",
+      "exposedName": "parquet",
+      "inputs": ["input"],
+      "optionalInputs": [],
+      "optionalOutputs": [],
+      "outputLocationNames": ["outputFile"],
+      "outputs": [],
+      "schema": {
+        "required": ["outputFile"],
+        "properties": {
+          "compressionCodec": {
+            "type": "string"
+          },
+          "outputFile": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "RandomSamplerNode": {
+      "categoryName": "processors",
+      "className": "com.datarobot.dssetl.lib.nodes.processors.RandomSamplerNode",
+      "exposedName": "randomSampler",
+      "inputs": ["input"],
+      "optionalInputs": [],
+      "optionalOutputs": ["scaleout", "sampleInfo"],
+      "outputLocationNames": [],
+      "outputs": ["output"],
+      "schema": {
+        "required": [],
+        "properties": {
+          "outputSizeBytes": {
+            "min": 1,
+            "type": "long"
+          },
+          "rowSizeEstimateDelimiter": {
+            "type": "string"
+          },
+          "rowSizeEstimateNumOfRows": {
+            "min": 1,
+            "type": "long"
+          },
+          "sampleRatio": {
+            "min": 0.0,
+            "max": 1.0,
+            "type": "double"
+          },
+          "seed": {
+            "type": "long"
+          }
+        }
+      }
+    },
+    "ReservoirSamplerNode": {
+      "categoryName": "processors",
+      "className": "com.datarobot.dssetl.lib.nodes.processors.ReservoirSamplerNode",
+      "exposedName": "reservoirSampler",
+      "inputs": ["input"],
+      "optionalInputs": [],
+      "optionalOutputs": ["scaleout", "sampleInfo"],
+      "outputLocationNames": [],
+      "outputs": ["output"],
+      "schema": {
+        "required": [],
+        "properties": {
+          "outputSizeBytes": {
+            "min": 1,
+            "type": "long"
+          },
+          "outputSizeRows": {
+            "min": 1,
+            "type": "long"
+          },
+          "rowSizeEstimateDelimiter": {
+            "type": "string"
+          },
+          "rowSizeEstimateNumOfRows": {
+            "min": 1,
+            "type": "long"
+          },
+          "seed": {
+            "type": "long"
+          }
+        }
+      }
+    },
+    "SanitizeSchemaNode": {
+      "categoryName": "processors",
+      "className": "com.datarobot.dssetl.lib.nodes.processors.SanitizeSchemaNode",
+      "exposedName": "sanitizeSchema",
+      "inputs": ["input"],
+      "optionalInputs": [],
+      "optionalOutputs": [],
+      "outputLocationNames": [],
+      "outputs": ["output"],
+      "schema": {
+        "required": [],
+        "properties": {
+          "strategy": {
+            "choices": ["basic", "strict"],
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SelectColumnsNode": {
+      "categoryName": "processors",
+      "className": "com.datarobot.dssetl.lib.nodes.processors.SelectColumnsNode",
+      "exposedName": "selectColumns",
+      "inputs": ["input"],
+      "optionalInputs": [],
+      "optionalOutputs": [],
+      "outputLocationNames": [],
+      "outputs": ["output"],
+      "schema": {
+        "required": ["columns"],
+        "properties": {
+          "columns": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        }
+      }
+    },
+    "SimpleJoinNode": {
+      "categoryName": "processors",
+      "className": "com.datarobot.dssetl.lib.nodes.processors.SimpleJoinNode",
+      "exposedName": "simpleJoiner",
+      "inputs": ["left", "right"],
+      "optionalInputs": [],
+      "optionalOutputs": [],
+      "outputLocationNames": [],
+      "outputs": ["output"],
+      "schema": {
+        "required": ["columns"],
+        "properties": {
+          "columns": {
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "joinType": {
+            "choices": ["inner", "outer", "left_outer", "right_outer", "leftsemi"],
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SmartSamplerNode": {
+      "categoryName": "processors",
+      "className": "com.datarobot.dssetl.lib.nodes.processors.SmartSamplerNode",
+      "exposedName": "smartSampler",
+      "inputs": ["input"],
+      "optionalInputs": [],
+      "optionalOutputs": ["scaleout", "sampleInfo", "discarded"],
+      "outputLocationNames": [],
+      "outputs": ["output"],
+      "schema": {
+        "required": ["outputSizeBytes", "targetColumnName"],
+        "properties": {
+          "fallbackToRandom": {
+            "type": "boolean"
+          },
+          "outputSizeBytes": {
+            "min": 1,
+            "type": "long"
+          },
+          "ratio": {
+            "min": 1.0,
+            "type": "double"
+          },
+          "rowSizeEstimateDelimiter": {
+            "type": "string"
+          },
+          "rowSizeEstimateNumOfRows": {
+            "min": 1,
+            "type": "long"
+          },
+          "seed": {
+            "type": "long"
+          },
+          "targetColumnName": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "TransformationNode": {
+      "categoryName": "processors",
+      "className": "com.datarobot.dssetl.lib.nodes.processors.TransformationNode",
+      "exposedName": "transformer",
+      "inputs": ["input"],
+      "optionalInputs": [],
+      "optionalOutputs": [],
+      "outputLocationNames": [],
+      "outputs": ["output"],
+      "schema": {
+        "required": ["expression"],
+        "properties": {
+          "expression": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "UnionNode": {
+      "categoryName": "processors",
+      "className": "com.datarobot.dssetl.lib.nodes.processors.UnionNode",
+      "exposedName": "union",
+      "inputs": ["input1", "input2"],
+      "optionalInputs": ["input3", "input4", "input5", "input6", "input7", "input8", "input9", "input10", "input11", "input12", "input13", "input14", "input15", "input16", "input17", "input18", "input19", "input20", "input21", "input22", "input23", "input24", "input25", "input26", "input27", "input28", "input29", "input30", "input31", "input32", "input33", "input34", "input35", "input36", "input37", "input38", "input39", "input40", "input41", "input42", "input43", "input44", "input45", "input46", "input47", "input48", "input49", "input50", "input51", "input52", "input53", "input54", "input55", "input56", "input57", "input58", "input59", "input60", "input61", "input62", "input63", "input64", "input65", "input66", "input67", "input68", "input69", "input70", "input71", "input72", "input73", "input74", "input75", "input76", "input77", "input78", "input79", "input80", "input81", "input82", "input83", "input84", "input85", "input86", "input87", "input88", "input89", "input90", "input91", "input92", "input93", "input94", "input95", "input96", "input97", "input98", "input99", "input100", "input101", "input102", "input103", "input104", "input105", "input106", "input107", "input108", "input109", "input110", "input111", "input112", "input113", "input114", "input115", "input116", "input117", "input118", "input119", "input120", "input121", "input122", "input123", "input124", "input125", "input126", "input127", "input128", "input129", "input130", "input131", "input132", "input133", "input134", "input135", "input136", "input137", "input138", "input139", "input140", "input141", "input142", "input143", "input144", "input145", "input146", "input147", "input148", "input149", "input150", "input151", "input152", "input153", "input154", "input155", "input156", "input157", "input158", "input159", "input160", "input161", "input162", "input163", "input164", "input165", "input166", "input167", "input168", "input169", "input170", "input171", "input172", "input173", "input174", "input175", "input176", "input177", "input178", "input179", "input180", "input181", "input182", "input183", "input184", "input185", "input186", "input187", "input188", "input189", "input190", "input191", "input192", "input193", "input194", "input195", "input196", "input197", "input198", "input199", "input200"],
+      "optionalOutputs": [],
+      "outputLocationNames": [],
+      "outputs": ["output"],
+      "schema": {
+        "required": [],
+        "properties": {
+
+        }
+      }
+    },
+    "VarTypeTransformNode": {
+      "categoryName": "processors",
+      "className": "com.datarobot.dssetl.lib.nodes.processors.VarTypeTransformNode",
+      "exposedName": "varTypeTransform",
+      "inputs": ["input"],
+      "optionalInputs": [],
+      "optionalOutputs": [],
+      "outputLocationNames": [],
+      "outputs": ["output"],
+      "schema": {
+        "required": ["transformations"],
+        "properties": {
+          "transformations": {
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        }
+      }
+    },
+    "XlsFileInputNode": {
+      "categoryName": "inputs",
+      "className": "com.datarobot.dssetl.lib.nodes.inputs.XlsFileInputNode",
+      "exposedName": "xls",
+      "inputs": [],
+      "optionalInputs": [],
+      "optionalOutputs": [],
+      "outputLocationNames": [],
+      "outputs": ["output"],
+      "schema": {
+        "required": ["inputPath"],
+        "properties": {
+          "customSchema": {
+            "type": "string"
+          },
+          "header": {
+            "type": "boolean"
+          },
+          "inferSchema": {
+            "type": "boolean"
+          },
+          "inputPath": {
+            "type": "string"
+          },
+          "isXlsx": {
+            "type": "boolean"
+          },
+          "nullValue": {
+            "type": "string"
+          },
+          "numOfRowsForSchemaDetection": {
+            "min": -1,
+            "type": "long"
+          },
+          "pipelines": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+	"graphId": "id",
+	"jobRootDirectory": "/tmp/etl",
+	"links": [{
+		"toHandle": "input",
+		"from": "graph_in",
+		"to": "graph_out",
+		"fromHandle": "output"
+	}],
+	"outputs": {
+		"graph_out": {
+			"properties": {
+				"outputFile": "/file/name",
+				"header": true
+			},
+			"type": "csv"
+		}
+	},
+	"processors": {},
+	"inputs": {
+		"graph_in": {
+			"properties": {
+				"inputPath": "input_file",
+				"charset": "UTF-8",
+				"multiLine": false,
+				"header": true,
+				"recordSeparator": "\r\n",
+				"useDatarobotCsvImpl": false,
+				"quote": "\"",
+				"delimiter": ","
+			},
+			"type": "csv"
+		}
+	},
+	"analyzers": {}
+}
