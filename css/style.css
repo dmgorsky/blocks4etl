@@ -85,3 +85,19 @@ button {
     border-radius:2px;
     cursor:pointer;
 }
+
+.top {
+    position:absolute;
+    left:0; right:0;
+    height: 50px;
+}
+
+.left {
+    position:absolute;
+    left:0; top:50px; bottom: 0;
+    width: 180px;
+}
+.main {
+    position: absolute;
+    left:180px; top:50px; right:0; bottom:0;
+}
